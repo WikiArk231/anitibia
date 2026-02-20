@@ -1,0 +1,178 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* BODY COM BACKGROUND */
+body {
+  min-height: 100vh;
+  background: url('images/background.png') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ESCURECIMENTO GLOBAL */
+body::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 0;
+}
+
+.main {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  width: 100%;
+  max-width: 1300px;
+  padding: 40px 20px;
+}
+
+/* LOGO + EFEITO NEON */
+.logo-wrapper {
+  display: inline-block;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.logo {
+  width: 300px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Neon atrás da logo */
+.logo-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  top: -10%;
+  left: -10%;
+  background: radial-gradient(circle, #00f7ff80, transparent 70%);
+  filter: blur(40px);
+  z-index: 1;
+}
+
+/* CARDS */
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 560px;
+  aspect-ratio: 16 / 9;
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  transition: 0.4s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* Overlay escuro */
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.4));
+}
+
+.overlay.purple {
+  background: linear-gradient(to top, rgba(50,0,80,0.9), rgba(0,0,0,0.4));
+}
+
+/* Conteúdo do Card */
+.card-content {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  text-align: left;
+  color: white;
+  z-index: 2;
+  max-width: 80%;
+}
+
+.card-content h2 {
+  font-size: 26px;
+  margin: 10px 0;
+}
+
+.card-content p {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+
+/* Status */
+.status {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 5px 12px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.status.online {
+  background: #00ff6a;
+  color: black;
+}
+
+.status.coming {
+  background: #ffcc00;
+  color: black;
+}
+
+/* Botões */
+.card-content a,
+.card-content button {
+  display: inline-block;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 8px 18px;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+/* Hover botão entrar */
+.card-content a:hover {
+  background: #a855f7;
+  border-color: #a855f7;
+}
+
+/* Botão desativado */
+.card-content button {
+  background: #444;
+  border: none;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+  }
+
+  .logo {
+    width: 220px;
+  }
+}
