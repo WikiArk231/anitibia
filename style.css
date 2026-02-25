@@ -19,9 +19,8 @@ body {
 /* ESCURECIMENTO GLOBAL */
 body::before {
   content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
+  position: fixed;   /* <-- muda aqui */
+  inset: 0;          /* substitui width/height */
   background: rgba(0, 0, 0, 0.75);
   z-index: 0;
 }
